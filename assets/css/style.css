@@ -3,6 +3,11 @@
     --color-black: #000;
 }
 
+@font-face {
+    font-family: Matrix;
+    src: url(../fonts/Antimatrix-BWBVw.ttf);
+ }
+
 html, body, div, section, img, ul, li{
     padding: 0;
     margin: 0;
