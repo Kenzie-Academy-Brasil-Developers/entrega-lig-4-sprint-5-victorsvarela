@@ -31,20 +31,20 @@ const renderGame = () => {
 // Função movePills
 const movePills = () => {
     let listColumns = document.getElementsByClassName("coluna");
-    listColumns = [...listColumns];
+    // listColumns = [...listColumns];
     // console.log(listColumns)
     let currentColumn = "";
 
     listColumns[0].addEventListener("click", (evt) => {
         currentColumn = evt.currentTarget;
-        console.log(currentColumn)
+        
         let rowCurrent = currentColumn.lastElementChild.id;
         let positionActual = document.getElementById(rowCurrent)
         if (currentColumn.lastElementChild.className === "linha vazio") {
             positionActual.classList.remove("vazio");
             positionActual.classList.add("player1");
             // console.log("verdade")
-            // console.log(positionActual)
+            console.log(currentColumn)
         }
     })
     listColumns[1].addEventListener("click", (evt) => {
