@@ -8,7 +8,7 @@ let gameStructure = [
     [0, 0, 0, 0, 0, 0]
 ];
 
-console.log(gameStructure);
+// console.log(gameStructure);
 // Criar função start game
 
 
@@ -37,3 +37,18 @@ const renderGame = () => {
 }
 
 renderGame();
+
+let atual = undefined;
+const selectTower = (evt) => {
+
+    atual = evt.target.closest('section');
+    console.log(atual);
+}
+
+
+let towers = document.getElementsByClassName("gameSection");
+//adc listeners em todas as colunas
+for(let i = 0; i < towers.length; i++) {
+    towers[i].addEventListener("click", selectTower);
+}
+
