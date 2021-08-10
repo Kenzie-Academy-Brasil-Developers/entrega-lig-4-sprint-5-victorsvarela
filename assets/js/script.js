@@ -27,6 +27,32 @@ const renderGame = () => {
 
 }
 
+function addClass(par) {
+    let child = par.children;
+    child = [...child];
+    // console.log(child);
+    for (let i = 5; i >= 0; i--) {
+        if (child[i].className === "linha vazio") {
+            child[i].classList.remove("vazio");
+            child[i].classList.add("player1");
+        }
+        console.log(child[i])
+
+    }
+
+    // let rowCurrent = par.lastElementChild.id;
+    // let positionActual = document.getElementById(rowCurrent)
+    // let idColumn = document.getElementById('0');
+    // console.log(idColumn);
+    // let id = Number(par.lastElementChild.id);
+    // if (par.lastElementChild.className === "linha vazio") {
+    //     positionActual.classList.remove("vazio");
+    //     positionActual.classList.add("player1");
+    //     // console.log("verdade")
+    //     console.log(Number(par.lastElementChild.id))
+    // }
+}
+
 
 // Função movePills
 const movePills = () => {
@@ -37,87 +63,31 @@ const movePills = () => {
 
     listColumns[0].addEventListener("click", (evt) => {
         currentColumn = evt.currentTarget;
-        
-        let rowCurrent = currentColumn.lastElementChild.id;
-        let positionActual = document.getElementById(rowCurrent)
-        if (currentColumn.lastElementChild.className === "linha vazio") {
-            positionActual.classList.remove("vazio");
-            positionActual.classList.add("player1");
-            // console.log("verdade")
-            console.log(currentColumn)
-        }
+        addClass(currentColumn)
     })
     listColumns[1].addEventListener("click", (evt) => {
         currentColumn = evt.currentTarget;
-        console.log(currentColumn)
-        let rowCurrent = currentColumn.lastElementChild.id;
-        let positionActual = document.getElementById(rowCurrent)
-        if (currentColumn.lastElementChild.className === "linha vazio") {
-            positionActual.classList.remove("vazio");
-            positionActual.classList.add("player2");
-            // console.log("verdade")
-            // console.log(positionActual)
-        }
+        addClass(currentColumn)
     })
     listColumns[2].addEventListener("click", (evt) => {
         currentColumn = evt.currentTarget;
-        console.log(currentColumn)
-        let rowCurrent = currentColumn.lastElementChild.id;
-        let positionActual = document.getElementById(rowCurrent)
-        if (currentColumn.lastElementChild.className === "linha vazio") {
-            positionActual.classList.remove("vazio");
-            positionActual.classList.add("player1");
-            // console.log("verdade")
-            // console.log(positionActual)
-        }
+        addClass(currentColumn)
     })
     listColumns[3].addEventListener("click", (evt) => {
         currentColumn = evt.currentTarget;
-        console.log(currentColumn)
-        let rowCurrent = currentColumn.lastElementChild.id;
-        let positionActual = document.getElementById(rowCurrent)
-        if (currentColumn.lastElementChild.className === "linha vazio") {
-            positionActual.classList.remove("vazio");
-            positionActual.classList.add("player2");
-            // console.log("verdade")
-            // console.log(positionActual)
-        }
+        addClass(currentColumn)
     })
     listColumns[4].addEventListener("click", (evt) => {
         currentColumn = evt.currentTarget;
-        console.log(currentColumn)
-        let rowCurrent = currentColumn.lastElementChild.id;
-        let positionActual = document.getElementById(rowCurrent)
-        if (currentColumn.lastElementChild.className === "linha vazio") {
-            positionActual.classList.remove("vazio");
-            positionActual.classList.add("player2");
-            // console.log("verdade")
-            // console.log(positionActual)
-        }
+        addClass(currentColumn)
     })
     listColumns[5].addEventListener("click", (evt) => {
         currentColumn = evt.currentTarget;
-        console.log(currentColumn)
-        let rowCurrent = currentColumn.lastElementChild.id;
-        let positionActual = document.getElementById(rowCurrent)
-        if (currentColumn.lastElementChild.className === "linha vazio") {
-            positionActual.classList.remove("vazio");
-            positionActual.classList.add("player1");
-            // console.log("verdade")
-            // console.log(positionActual)
-        }
+        addClass(currentColumn)
     })
     listColumns[6].addEventListener("click", (evt) => {
         currentColumn = evt.currentTarget;
-        console.log(currentColumn)
-        let rowCurrent = currentColumn.lastElementChild.id;
-        let positionActual = document.getElementById(rowCurrent)
-        if (currentColumn.lastElementChild.className === "linha vazio") {
-            positionActual.classList.remove("vazio");
-            positionActual.classList.add("player2");
-            // console.log("verdade")
-            // console.log(positionActual)
-        }
+        addClass(currentColumn)
     })
 }
 
