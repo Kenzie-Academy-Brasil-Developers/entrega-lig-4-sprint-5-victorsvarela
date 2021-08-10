@@ -25,12 +25,22 @@
                 <h2 class="logo">Lig 4</h2>
             </div>
             <div class="secButtons">
-                <button class="btnPlay">Jogar</button>
+                <button class="btnPlay" id="btnPlay">Jogar</button>
                 <button class="btnRules">Regras</button>
             </div>
         </section>
-        <section class="rulesSection" id="rulesScreen"></section>
-        <section class="initialSection" id="initialScreen"></section>
+        <section class="selectNameSection hidden" id="selectNameScreen">
+            <div>
+                <div class="inputsDiv">
+                    <input placeholder="Jogador 1" type="text" class="inputPlayer" id="inputPlayer1">
+                    <input placeholder="Jogador 2" type="text" class="inputPlayer" id="inputPlayer2">
+                </div>
+                <div class="btnStartDiv">
+                    <button class="btnStartGame btnPadrao" id="btnStartGame">Iniciar</button>
+                    <button class="btnInitialScreen btnPadrao" id="btnInitialScreen">Tela Inicial</button>
+                </div>
+            </div>
+        </section>
         <section class="rulesSection" id="rulesScreen">
             
                 <h2>Regras Do Jogo</h2>

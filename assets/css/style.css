@@ -1,7 +1,9 @@
 :root{
     --color-white: #fff;
     --color-black: #000;
-
+    --color-green-background: #22B455;
+    --color-green-button: #228C45;
+    --dropshadow-button: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));;
 }
 
 
@@ -20,7 +22,6 @@ html, body, div, section, img, ul, li{
 }
 
 
-
 /* MAIN */
 
 main{
@@ -36,7 +37,11 @@ main section.initialSection{
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    background-color: #22B455;
+    background-color: var(--color-green-background);
+    background-image: url('../img/neo.png'), url('../img/morpheus.png');
+    background-size: contain, 170px;
+    background-repeat: no-repeat;
+    background-position: 100px 125%, -25px 100%;
 }
 
 
@@ -50,7 +55,7 @@ main section.initialSection div.secLogo{
 
 main section.initialSection div.secLogo h2.logo{
     font-family: Matrix;
-    font-size: 48px;
+    font-size: 78px;
 }
 
 main section.initialSection div.secButtons {
@@ -58,12 +63,12 @@ main section.initialSection div.secButtons {
     flex-direction: column;
 }
 
-main section.initialSection div.secButtons button.btnPlay, main section.initialSection div.secButtons button.btnRules{
-    background-color: #228C45;
+main section.initialSection div.secButtons button.btnPlay, main section.initialSection div.secButtons button.btnRules, .btnPadrao{
+    background-color: var(--color-green-button);
     border: none;
     border-radius: 10px;
     color: var(--color-white);
-    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
+    filter: var(--dropshadow-button);
     font-family: 'Advent Pro', sans-serif;
     font-size: 24px;
     margin: 5px 0;
@@ -71,6 +76,65 @@ main section.initialSection div.secButtons button.btnPlay, main section.initialS
 }
 
 /* INITIAL SECTION */
+/* SELECT NAME SECTION */
+
+main section.selectNameSection{
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--color-green-background);
+    background-image: url('../img/morpheus-pills.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+}
+
+main section.hidden{
+    display: none;
+}
+
+main section.selectNameSection div{
+    margin-bottom: 30px;
+}
+
+main section.selectNameSection div div.inputsDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+main section.selectNameSection div div.inputsDiv input{
+    border-radius: 10px;
+    height: 24px;
+    margin: 20px 10px;
+    width: 40%;
+}
+
+main section.selectNameSection div div.inputsDiv input::placeholder{
+    font-family: 'Courier New', Courier, monospace;
+    /* font-family: Matrix; */
+    text-align: center;
+}
+
+main section.selectNameSection div div.btnStartDiv{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+main section.selectNameSection div div.btnStartDiv button.btnStartGame{
+    width: 60vw;
+}
+main section.selectNameSection div div.btnStartDiv button.btnInitialScreen{
+    width: 60vw;
+}
+
+/* SELECT NAME SECTION */
 /* RULES SECTION */
 .rulesSection{
     position: absolute;
@@ -127,3 +191,5 @@ li#finishGame ul > li{
 
 
 /* MAIN */
+
+
