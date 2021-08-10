@@ -26,6 +26,7 @@ main{
 
 /* INITIAL SECTION */
 
+
 main section.initialSection{
     display: flex;
     flex-direction: column;
@@ -34,12 +35,14 @@ main section.initialSection{
     background-color: #22B455;
 }
 
+
 main section.initialSection div.secLogo{
     display: flex;
     justify-content: baseline;
     align-items: center;
     height: 300px;
 }
+
 
 main section.initialSection div.secLogo h2.logo{
     font-family: Matrix;
