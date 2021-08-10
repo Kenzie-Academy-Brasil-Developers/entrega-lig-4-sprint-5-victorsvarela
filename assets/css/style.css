@@ -1,6 +1,7 @@
 :root{
     --color-white: #fff;
     --color-black: #000;
+
 }
 
 html, body, div, section, img, ul, li{
@@ -21,7 +22,28 @@ html, body, div, section, img, ul, li{
 
 /* INITIAL SECTION */
 /* RULES SECTION */
-
+.rulesSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #22B455;
+    color: var(--color-white);
+}
+#backRules{
+    border: none;
+    background: #228C45;
+    padding: 10px 40px;
+    font-size: 30px;
+    border-radius: 10px;
+    margin: 5px 0px 10px 0px;
+    color: #FFFFFF;
+}
+#backRules:hover{
+    border: 2px solid #CCC;
+    border-radius: 10px;
+    
+}
 
 
 /* RULES SECTION */
