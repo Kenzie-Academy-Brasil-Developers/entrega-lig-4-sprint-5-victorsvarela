@@ -83,6 +83,8 @@ main section.initialSection div.secButtons button.btnPlay, main section.initialS
     color: var(--color-white);
     padding: 0px 10px;
     font-family: 'Advent Pro', sans-serif;
+    height: 100vh;
+    top: 0;
 }
 
 #backRules{
@@ -95,6 +97,9 @@ main section.initialSection div.secButtons button.btnPlay, main section.initialS
     color: var(--color-white);
     filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
     
+}
+.rulesSection ul li > p{
+    margin: 12px 0px;
 }
 #backRules:hover{
     border: 2px solid #CCC;
@@ -115,6 +120,10 @@ li#finishGame ul > li{
     list-style-type: disc;
     list-style: inside;
     
+}
+
+.hidden{
+    display: none;
 }
 /* RULES SECTION */
 /* GAME SECTION */
