@@ -113,12 +113,16 @@ main section.selectNameSection div div.inputsDiv input{
     height: 24px;
     margin: 20px 10px;
     width: 40%;
+    background-color: #204829;
+    color: var(--color-white);
+    border: none;
 }
 
 main section.selectNameSection div div.inputsDiv input::placeholder{
     font-family: 'Courier New', Courier, monospace;
     /* font-family: Matrix; */
     text-align: center;
+    color: var(--color-white);
 }
 
 main section.selectNameSection div div.btnStartDiv{
@@ -147,6 +151,8 @@ main section.selectNameSection div div.btnStartDiv button.btnInitialScreen{
     color: var(--color-white);
     padding: 0px 10px;
     font-family: 'Advent Pro', sans-serif;
+    height: 100vh;
+    top: 0;
 }
 
 #backRules{
@@ -159,6 +165,9 @@ main section.selectNameSection div div.btnStartDiv button.btnInitialScreen{
     color: var(--color-white);
     filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
     
+}
+.rulesSection ul li > p{
+    margin: 12px 0px;
 }
 #backRules:hover{
     border: 2px solid #CCC;
@@ -179,6 +188,10 @@ li#finishGame ul > li{
     list-style-type: disc;
     list-style: inside;
     
+}
+
+.hidden{
+    display: none;
 }
 /* RULES SECTION */
 /* GAME SECTION */

@@ -15,12 +15,22 @@ const hide = (event) => {
 btnPlay.addEventListener('click', showSelectNamePlayers)
 btnInitialScreen.addEventListener('click', hide)
 
-btnBackRules.addEventListener('click', (e) =>{
-    backRules()
-})
-function backRules(){
-    rulesSection.classList.add('hidden')
+
+const rulesScreen = () => {
+    rulesSection.classList.remove('hidden')
+    btnBackRules.classList.remove("hidden")
 }
+
+const backRules = () => {
+    rulesSection.classList.add('hidden')
+    btnBackRules.classList.add("hidden")
+
+}
+
+btnRules.addEventListener('click', rulesScreen)
+
+btnBackRules.addEventListener('click', backRules)
+
 
 
 
