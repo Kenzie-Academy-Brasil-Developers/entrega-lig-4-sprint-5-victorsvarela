@@ -7,3 +7,4 @@ btnBackRules.addEventListener('click', (e) =>{
 function backRules(){
     rulesSection.classList.add('hidden')
 }
+
