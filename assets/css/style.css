@@ -19,9 +19,49 @@ html, body, div, section, img, ul, li{
 
 /* MAIN */
 
+main{
+    width: 100%;
+    height: 100vh;
+}
 
 /* INITIAL SECTION */
 
+main section.initialSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #22B455;
+}
+
+main section.initialSection div.secLogo{
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    height: 300px;
+}
+
+main section.initialSection div.secLogo h2.logo{
+    font-family: Matrix;
+    font-size: 48px;
+}
+
+main section.initialSection div.secButtons {
+    display: flex;
+    flex-direction: column;
+}
+
+main section.initialSection div.secButtons button.btnPlay, main section.initialSection div.secButtons button.btnRules{
+    background-color: #228C45;
+    border: none;
+    border-radius: 10px;
+    color: var(--color-white);
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 24px;
+    margin: 5px 0;
+    padding: 7px 30px;
+}
 
 
 /* INITIAL SECTION */
