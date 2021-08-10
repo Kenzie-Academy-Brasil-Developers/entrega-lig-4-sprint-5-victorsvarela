@@ -28,17 +28,27 @@ const renderGame = () => {
 }
 
 function addClass(par) {
-    let rowCurrent = par.lastElementChild.id;
-        let positionActual = document.getElementById(rowCurrent)
-        let idColumn = document.getElementById('0');
-        console.log(idColumn);
-        let id = Number(par.lastElementChild.id);
-        if (par.lastElementChild.className === "linha vazio") {
-            positionActual.classList.remove("vazio");
-            positionActual.classList.add("player1");
-            // console.log("verdade")
-            console.log(Number(par.lastElementChild.id))
+    let child = par.children;
+    child = [...child];
+    console.log(child);
+    for(let i = child.length; i > 0; i--) {
+        if(child[i].className === "linha vazio") {
+            child[i].className.remove("linha vazio");
+            child[i].className.add("player1");
         }
+        console.log(child[i]);
+    }
+    // let rowCurrent = par.lastElementChild.id;
+    // let positionActual = document.getElementById(rowCurrent)
+    // let idColumn = document.getElementById('0');
+    // console.log(idColumn);
+    // let id = Number(par.lastElementChild.id);
+    // if (par.lastElementChild.className === "linha vazio") {
+    //     positionActual.classList.remove("vazio");
+    //     positionActual.classList.add("player1");
+    //     // console.log("verdade")
+    //     console.log(Number(par.lastElementChild.id))
+    // }
 }
 
 
