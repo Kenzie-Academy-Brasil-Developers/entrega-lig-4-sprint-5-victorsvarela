@@ -51,7 +51,6 @@ main section.initialSection div.secButtons {
     flex-direction: column;
 }
 
-
 main section.initialSection div.secButtons button.btnPlay, main section.initialSection div.secButtons button.btnRules{
     background-color: #228C45;
     border: none;
@@ -63,8 +62,6 @@ main section.initialSection div.secButtons button.btnPlay, main section.initialS
     margin: 5px 0;
     padding: 7px 30px;
 }
-
-
 
 /* INITIAL SECTION */
 /* RULES SECTION */
