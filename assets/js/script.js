@@ -55,7 +55,8 @@ const updateArray = (a, b) => {
     console.log(gameStructure);
 }
 
-const victoryCondition = () => {
+// Função de vitoria vertical
+const victoryVertical = () => {
     // Se procurar além do length da array dá erro
     const edgeX = gameStructure[0].length - 3;
     const edgeY = gameStructure.length - 3;
@@ -78,7 +79,11 @@ const victoryCondition = () => {
             }
         }
     }
-
+}
+// Função de vitoria horizontal
+const victoryHorizontal = () => {
+    const edgeX = gameStructure[0].length - 3;
+    const edgeY = gameStructure.length - 3;
     // Horizontal
     // itera sobre cada coluna  
     for(let y = 0; y < edgeY; y++){
@@ -97,7 +102,11 @@ const victoryCondition = () => {
             }
         }
     }
-
+}
+// Função de vitoria diagonal direita
+const victoryDiagonalRight = () => {
+    const edgeX = gameStructure[0].length - 3;
+    const edgeY = gameStructure.length - 3;
     // DIAGONAL (direita pra baixo)
     // itera sobre cada coluna  
     for(let y = 0; y < edgeY; y++){
@@ -116,8 +125,11 @@ const victoryCondition = () => {
             }
         }
     }
-
-
+}
+// Função de vitoria diagonal esquerda
+const victoryDiagonalLeft = () => {
+    const edgeX = gameStructure[0].length - 3;
+    const edgeY = gameStructure.length - 3;
     // DIAGONAL (esquerda pra baixo)
     // itera sobre cada coluna  
     for(let y = 2; y < gameStructure.length; y++){
@@ -131,12 +143,11 @@ const victoryCondition = () => {
             
                 // Checa se o numero da celula atual e igual os proximos 3 numeros
                 if(cell === gameStructure[y-1][x+1] && cell === gameStructure[y-2][x+2] && cell === gameStructure[y-3][x+3]) {
-                    console.log("3 in a row down-left found at " + (x+1) + ":" + (y+1));
+                    console.log("4 in a row down-left found at " + (x+1) + ":" + (y+1));
                 }
             }
         }
     }
-
 }
 
 // função addClass verifica jogador e adiciona Classe
@@ -159,7 +170,10 @@ const addClass = (par) => {
             columnPlayer = child[i].id[1];
             rowPlayer = child[i].id[3];
             updateArray(columnPlayer, rowPlayer);
-            victoryCondition();
+            victoryVertical();
+            victoryHorizontal();
+            victoryDiagonalLeft();
+            victoryDiagonalRight();
             // após encontrar parar o loop para não alimentar todos os espaços vazios
             break;
         }
@@ -180,9 +194,8 @@ const movePills = () => {
     let listColumns = document.getElementsByClassName("coluna");
     
     /*  listColumns = [...listColumns]; (remover essa parte - não tá servindo)
-      let currentColumn = ""; (remover essa parte - não ta servindo)*/
+    let currentColumn = ""; (remover essa parte - não ta servindo)*/
 
-      
     // Iterar sobre cada coluna para identificar o click e chamar a função add.Class
     for (let i = 0; i <= 6; i++){
         listColumns[i].addEventListener("click", (evt) => {
@@ -190,8 +203,6 @@ const movePills = () => {
             addClass(currentColumn)
         })
     }
-    
-
 }
 
 // Criar função start game
