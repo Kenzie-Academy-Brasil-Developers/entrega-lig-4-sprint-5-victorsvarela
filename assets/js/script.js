@@ -33,16 +33,25 @@ const renderGame = () => {
 let usuarioAtual = 'player1';
 
 function addClass(par) {
+
+    // Pegando todos os filhos da coluna selecionada;
     let child = par.childNodes;
-    console.log(child)
+    
+    // unindo em forma de array com spreed
     child = [...child];
+
+    // percorrendo os elementos para ver se encontra a classe "linha vazio"
     for (let i = 5; i >= 0; i--) {
+
+        // se encontrar a classe linha vazio, irá substituir pela classe do jogador atual;
         if (child[i].className === "linha vazio") {
             child[i].classList.remove("vazio");
             child[i].classList.add(usuarioAtual);
+            // após encontrar parar o loop para não alimentar todos os espaços vazios
             break;
         }
     }
+    // verificando qual o jogador atual e modificando para o próximo jogador da próxima rodada. 
     if (usuarioAtual === "player1") {
         usuarioAtual = "player2";
     } else {
@@ -53,42 +62,22 @@ function addClass(par) {
 
 // Função movePills
 const movePills = () => {
+    // Capturando os elementos do tipo coluna que contém os elementos filhos que serão as linhas
     let listColumns = document.getElementsByClassName("coluna");
-    // listColumns = [...listColumns];
-    // console.log(listColumns)
-    let currentColumn = "";
+    
+    /*  listColumns = [...listColumns]; (remover essa parte - não tá servindo)
+      let currentColumn = ""; (remover essa parte - não ta servindo)*/
 
-    listColumns[0].addEventListener("click", (evt) => {
-        currentColumn = evt.currentTarget;
-        addClass(currentColumn)
-    })
-    listColumns[1].addEventListener("click", (evt) => {
-        currentColumn = evt.currentTarget;
-        addClass(currentColumn)
-    })
-    listColumns[2].addEventListener("click", (evt) => {
-        currentColumn = evt.currentTarget;
-        addClass(currentColumn)
-    })
-    listColumns[3].addEventListener("click", (evt) => {
-        currentColumn = evt.currentTarget;
-        addClass(currentColumn)
-    })
-    listColumns[4].addEventListener("click", (evt) => {
-        currentColumn = evt.currentTarget;
-        addClass(currentColumn)
-    })
-    listColumns[5].addEventListener("click", (evt) => {
-        currentColumn = evt.currentTarget;
-        addClass(currentColumn)
-    })
-    listColumns[6].addEventListener("click", (evt) => {
-        currentColumn = evt.currentTarget;
-        addClass(currentColumn)
-    })
+      
+    // Iterar sobre cada coluna para identificar o click e chamar a função add.Class
+    for (let i = 0; i <= 6; i++){
+        listColumns[i].addEventListener("click", (evt) => {
+            let currentColumn = evt.currentTarget;
+            addClass(currentColumn)
+        })
+    }
+    
 }
-
-
 
 // Criar função start game
 const startGame = () => {
