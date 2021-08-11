@@ -18,7 +18,7 @@ const renderGame = () => {
         column.classList.add("coluna");
         for (let j = 0; j < gameStructure[i].length; j++) {
             let row = document.createElement("div");
-            row.id = `${i}${j}`;
+            row.id = `c${i}l${j}`;
             row.classList.add("linha", "vazio");
             column.appendChild(row);
             container.appendChild(column);
