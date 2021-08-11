@@ -32,7 +32,7 @@ const renderGame = () => {
 // função addClass verifica jogador e adiciona Classe
 let usuarioAtual = 'player1';
 
-function addClass(par) {
+const addClass = (par) => {
 
     // Pegando todos os filhos da coluna selecionada;
     let child = par.childNodes;
