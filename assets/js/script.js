@@ -12,6 +12,7 @@ let rulesSection = document.getElementById("rulesScreen");
 let player1 = '';
 let player2 = '';
 
+
 const showSelectNamePlayers = (event) => {
     selectNameScreen.classList.remove('hidden');
 }
