@@ -55,6 +55,90 @@ const updateArray = (a, b) => {
     console.log(gameStructure);
 }
 
+const victoryCondition = () => {
+    // Se procurar além do length da array dá erro
+    const edgeX = gameStructure[0].length - 3;
+    const edgeY = gameStructure.length - 3;
+
+    // Vertical
+    // itera sobre cada coluna
+    for(let y = 0; y < gameStructure.length; y++){
+
+        // itera sobre cada div da coluna
+        for(let x = 0; x < edgeX; x++) {
+            let cell = gameStructure[y][x];
+            
+            // Checa se a célula esta vazia (se o jogador não fez nenhuma jogada nessa celula)
+            if(cell !== 0) {
+                
+                // Checa se o numero da celula atual e igual os proximos 3 numeros
+                if(cell === gameStructure[y][x+1] && cell === gameStructure[y][x+2] && cell === gameStructure[y][x+3]) {
+                    console.log("4 in a row vertical found at " + (x+1) + ":" + (y+1));
+                }
+            }
+        }
+    }
+
+    // Horizontal
+    // itera sobre cada coluna  
+    for(let y = 0; y < edgeY; y++){
+
+        // itera sobre cada div da coluna
+        for(let x = 0; x < gameStructure[0].length; x++) {
+            cell = gameStructure[y][x];
+            
+            // Checa se a célula esta vazia (se o jogador não fez nenhuma jogada nessa celula)
+            if(cell !== 0) {
+                
+                // Checa se o numero da celula atual e igual os proximos 3 numeros
+                if(cell === gameStructure[y+1][x] && cell === gameStructure[y+2][x] && cell === gameStructure[y+3][x] ) {
+                    console.log("4 in a row horizontal found at " + (x+1) + ":" + (y+1));
+                }
+            }
+        }
+    }
+
+    // DIAGONAL (direita pra baixo)
+    // itera sobre cada coluna  
+    for(let y = 0; y < edgeY; y++){
+
+        // itera sobre cada div da coluna
+        for(let x = 0; x < edgeX; x++) {
+            cell = gameStructure[y][x];
+            
+            // Checa se a célula esta vazia (se o jogador não fez nenhuma jogada nessa celula)
+            if(cell !== 0) {
+                
+                // Checa se o numero da celula atual e igual os proximos 3 numeros
+                if(cell === gameStructure[y+1][x+1] && cell === gameStructure[y+2][x+2] && cell === gameStructure[y+3][x+3]) {
+                    console.log("4 in a row down-right found at " + (x+1) + ":" + (y+1));
+                }
+            }
+        }
+    }
+
+
+    // DIAGONAL (esquerda pra baixo)
+    // itera sobre cada coluna  
+    for(let y = 2; y < gameStructure.length; y++){
+
+        // itera sobre cada div da coluna
+        for(let x = 0; x < edgeX; x++) {
+            cell = gameStructure[y][x];
+            
+            // Checa se a célula esta vazia (se o jogador não fez nenhuma jogada nessa celula)
+            if(cell !== 0) {
+            
+                // Checa se o numero da celula atual e igual os proximos 3 numeros
+                if(cell === gameStructure[y-1][x+1] && cell === gameStructure[y-2][x+2] && cell === gameStructure[y-3][x+3]) {
+                    console.log("3 in a row down-left found at " + (x+1) + ":" + (y+1));
+                }
+            }
+        }
+    }
+
+}
+
 // função addClass verifica jogador e adiciona Classe
 const addClass = (par) => {
 
@@ -75,6 +159,7 @@ const addClass = (par) => {
             columnPlayer = child[i].id[1];
             rowPlayer = child[i].id[3];
             updateArray(columnPlayer, rowPlayer);
+            victoryCondition();
             // após encontrar parar o loop para não alimentar todos os espaços vazios
             break;
         }
