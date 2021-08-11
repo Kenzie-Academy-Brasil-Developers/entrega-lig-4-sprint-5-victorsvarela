@@ -1,24 +1,35 @@
-const btnBackRules = document.getElementById("backRules")
-const rulesSection = document.getElementById("rulesScreen")
-const btnRules = document.getElementById("btnRules")
+const btnPlay = document.getElementById("btnPlay");
+const selectNameSection = document.getElementById('selectNameScreen');
+const btnInitialScreen = document.getElementById('btnInitialScreen')
+let btnBackRules = document.getElementById("backRules")
+let rulesSection = document.getElementById("rulesScreen")
 
-function rulesScreen(){
+const showSelectNamePlayers = (event) => {
+    selectNameSection.classList.remove('hidden')
+}
+
+const hide = (event) => {
+    selectNameSection.classList.add('hidden')
+}
+
+btnPlay.addEventListener('click', showSelectNamePlayers)
+btnInitialScreen.addEventListener('click', hide)
+
+
+const rulesScreen = () => {
     rulesSection.classList.remove('hidden')
     btnBackRules.classList.remove("hidden")
 }
-function backRules(){
+
+const backRules = () => {
     rulesSection.classList.add('hidden')
     btnBackRules.classList.add("hidden")
 
 }
-btnRules.addEventListener('click', (e)=>{
-    rulesScreen()
-         
-})
 
-btnBackRules.addEventListener('click', (e) =>{
-    backRules()
-})
+btnRules.addEventListener('click', rulesScreen)
+
+btnBackRules.addEventListener('click', backRules)
 
 
 
