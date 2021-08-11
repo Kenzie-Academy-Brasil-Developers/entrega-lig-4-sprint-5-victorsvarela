@@ -29,16 +29,40 @@ const renderGame = () => {
 
 }
 
-// função addClass verifica jogador e adiciona Classe
-let usuarioAtual = 'player1';
+let currentPlayer = 'player1';
+let columnPlayer = undefined;
+let rowPlayer = undefined;
 
+const updateArray = (a, b) => {
+    let n = 0;
+    if(currentPlayer === 'player1') {
+        n = 1;
+    } else {
+        n = 2;
+    }
+
+    a = Number(a);
+    b = Number(b);
+    
+    for(let i = 0; i < gameStructure.length; i++) {
+        for(let j = 0; j < gameStructure[i].length; j++) {
+            if(i === a && j === b) {
+                gameStructure[i].splice(j, 1, n);
+            }
+        }
+    }
+    
+    console.log(gameStructure);
+}
+
+// função addClass verifica jogador e adiciona Classe
 const addClass = (par) => {
 
     // Pegando todos os filhos da coluna selecionada;
     let child = par.childNodes;
     
     // unindo em forma de array com spreed
-    child = [...child];
+    // child = [...child];
 
     // percorrendo os elementos para ver se encontra a classe "linha vazio"
     for (let i = 5; i >= 0; i--) {
@@ -46,18 +70,23 @@ const addClass = (par) => {
         // se encontrar a classe linha vazio, irá substituir pela classe do jogador atual;
         if (child[i].className === "linha vazio") {
             child[i].classList.remove("vazio");
-            child[i].classList.add(usuarioAtual);
+            child[i].classList.add(currentPlayer);
+
+            columnPlayer = child[i].id[1];
+            rowPlayer = child[i].id[3];
+            updateArray(columnPlayer, rowPlayer);
             // após encontrar parar o loop para não alimentar todos os espaços vazios
             break;
         }
     }
     // verificando qual o jogador atual e modificando para o próximo jogador da próxima rodada. 
-    if (usuarioAtual === "player1") {
-        usuarioAtual = "player2";
+    if (currentPlayer === "player1") {
+        currentPlayer = "player2";
     } else {
-        usuarioAtual = "player1";
+        currentPlayer = "player1";
     }
 }
+
 
 
 // Função movePills
@@ -77,6 +106,7 @@ const movePills = () => {
         })
     }
     
+
 }
 
 // Criar função start game
