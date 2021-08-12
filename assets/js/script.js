@@ -64,6 +64,57 @@ btnBackRules.addEventListener('click', backRules);
 
 
 
+const playerName = document.querySelector('#victoryScreen>h2')
+const gifWin = document.querySelector('#victoryScreen div')
+const victorySection = document.querySelector('#victoryScreen')
+const playAgain = document.querySelector('#btnPlayAgain')
+const btnMenu = document.querySelector('#btnMenu')
+
+function winRed(){
+    victorySection.classList.add('victorySection')
+    victorySection.classList.remove('hidden')
+    playerName.innerText = "Jogador Vermelho Venceu"
+    playerName.style.color = 'red'
+    // gifWin.style.backgroundImage = "url('../gif/redWin.gif')"
+    gifWin.style.width = 300 +'px'
+    gifWin.style.height = 167 +'px'
+}
+function winBlue(){
+    victorySection.classList.add('victorySection')
+    victorySection.classList.remove('hidden')
+    playerName.innerText = "Jogador Azul Venceu"
+    playerName.style.color = 'rgb(68, 0, 255)'
+    // gifWin.style.backgroundImage = "url('../gif/blueWin.gif')"
+    gifWin.style.width = 203 +'px'
+    gifWin.style.height = 222 +'px'
+}
+
+function menu(){
+    victorySection.classList.add('hidden')
+    victorySection.classList.remove('victorySection')
+}
+
+btnMenu.addEventListener('click', (e)=>{
+    menu()
+    showSelectNamePlayers()
+})
+
+playAgain.addEventListener('click', (e) =>{
+    const container = document.getElementById("gameScreen")
+    const child = container.childNodes
+    container.remove(child)
+    renderGame();
+    console.log(container, container.childNodes)
+})
+
+
+
+
+
+
+
+
+
 
 // Array inicial da partida;
 
@@ -149,6 +200,7 @@ const victoryVertical = () => {
                 // Checa se o numero da celula atual e igual os proximos 3 numeros
                 if(cell === game[y][x+1] && cell === game[y][x+2] && cell === game[y][x+3]) {
                     console.log("4 in a row vertical found at " + (x+1) + ":" + (y+1));
+                    winRed()
                 }
             }
         }
@@ -172,6 +224,7 @@ const victoryHorizontal = () => {
                 // Checa se o numero da celula atual e igual os proximos 3 numeros
                 if(cell === game[y+1][x] && cell === game[y+2][x] && cell === game[y+3][x] ) {
                     console.log("4 in a row horizontal found at " + (x+1) + ":" + (y+1));
+                    winRed()
                 }
             }
         }
@@ -195,6 +248,7 @@ const victoryDiagonalRight = () => {
                 // Checa se o numero da celula atual e igual os proximos 3 numeros
                 if(cell === game[y+1][x+1] && cell === game[y+2][x+2] && cell === game[y+3][x+3]) {
                     console.log("4 in a row down-right found at " + (x+1) + ":" + (y+1));
+                    winRed()
                 }
             }
         }
@@ -290,39 +344,5 @@ const startGame = () => {
     movePills();
 }
 
-const playerName = document.querySelector('.victorySection>h2')
-const gifWin = document.querySelector('.victorySection div')
-const victorySection = document.querySelector('.victorySection')
-const playAgain = document.querySelector('#btnPlayAgain')
-const btnMenu = document.querySelector('#btnMenu')
 
-function winRed(){
-playerName.innerText += " Vermelho Venceu"
-playerName.style.color = 'red'
-// gifWin.style.backgroundImage = "url('../gif/redWin.gif')"
-gifWin.style.width = 300 +'px'
-gifWin.style.height = 167 +'px'
-}
-function winBlue(){
-    playerName.innerText += " Azul Venceu"
-    playerName.style.color = 'rgb(68, 0, 255)'
-    // gifWin.style.backgroundImage = "url('../gif/blueWin.gif')"
-    gifWin.style.width = 203 +'px'
-    gifWin.style.height = 222 +'px'
-}
-
-function menu(){
-    victorySection.classList.add('hidden')
-    victorySection.classList.remove('victorySection')
-}
-
-btnMenu.addEventListener('click', (e)=>{
-    menu()
-})
-
-playAgain.addEventListener('click', (e) =>{
-    
-})
-
-winRed()
 startGame();
