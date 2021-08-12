@@ -85,7 +85,7 @@ let game = [
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0]
 ];
-console.log(gameStructure);
+// console.log(gameStructure);
 // Criar função de renderizar;
 
 const renderGame = () => {
@@ -248,6 +248,7 @@ const addClass = (par) => {
             columnPlayer = child[i].id[1];
             rowPlayer = child[i].id[3];
             // console.log(columnPlayer);
+            
             updateArray(columnPlayer, rowPlayer);
             victoryVertical();
             victoryHorizontal();
