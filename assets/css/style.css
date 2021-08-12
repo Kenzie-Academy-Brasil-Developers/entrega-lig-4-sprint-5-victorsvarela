@@ -73,6 +73,8 @@ main section.initialSection div.secButtons button.btnPlay, main section.initialS
     font-size: 24px;
     margin: 5px 0;
     padding: 7px 30px;
+    width: 160px;
+    max-width: 160px;
 }
 
 /* INITIAL SECTION */
@@ -104,7 +106,7 @@ main section.selectNameSection div{
 
 main section.selectNameSection div div.inputsDiv{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
 }
 

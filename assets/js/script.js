@@ -100,11 +100,11 @@ btnMenu.addEventListener('click', (e)=>{
 })
 
 playAgain.addEventListener('click', (e) =>{
-    const container = document.getElementById("gameScreen")
-    const child = container.childNodes
-    container.remove(child)
-    renderGame();
-    console.log(container, container.childNodes)
+    const containeer = document.querySelector(".gameSection")
+    const child = containeer.childNodes
+    containeer.remove(child)
+    // renderGame();
+    console.log(containeer, containeer.childNodes, containeer.children)
 })
 
 
