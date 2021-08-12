@@ -63,7 +63,7 @@ main section.initialSection div.secButtons {
     flex-direction: column;
 }
 
-main section.initialSection div.secButtons button.btnPlay, main section.initialSection div.secButtons button.btnRules, .btnPadrao{
+main section.initialSection div.secButtons button.btnPlay, main section.initialSection div.secButtons button.btnRules, .btnPadrao, #btnPlayAgain, #btnMenu{
     background-color: var(--color-green-button);
     border: none;
     border-radius: 10px;
@@ -222,9 +222,7 @@ li#finishGame ul > li{
     
 }
 
-.hidden{
-    display: none;
-}
+
 /* RULES SECTION */
 /* GAME SECTION */
 
@@ -281,4 +279,72 @@ main section.hidden{
 
 /* MAIN */
 
+/* victoryScreen */
+main section.victorySection{
+    background-color: transparent;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+    position: absolute;
+    z-index: 4;
+    top: -4%;
+    width: 100%;
+    flex-direction: column;
+    align-content: center;
+}
+main section.victorySection div{
+    display: flex;
+    justify-content: center;
+    background-image: url('../gif/redWin.gif');
+    height: 222px;
+    width: 203px;
+}
 
+main section.victorySection  > h2{
+    margin: 0;
+    padding: 0;
+    color: var(--color-white);
+    font-family: Matrix;
+}
+.victoryScreen{
+    background-color: var(--color-green-background);
+ 
+    position: absolute;
+    z-index: 7;
+    height: 100vh;
+    width: 100vw;
+}
+
+@keyframes winnerBlue {
+    0%   {background-color: rgb(68, 0, 255); filter: drop-shadow(1px 2px 12px blue);}
+    25%  {background-color: rgb(55, 0, 255); filter: drop-shadow(1px 2px 12px blue);}
+    50%  {background-color: blue; filter: drop-shadow(1px 2px 12px blue);}
+    100% {background-color: rgb(0, 9, 128); filter: drop-shadow(1px 2px 12px blue);}
+  }
+
+@keyframes winnerRed {
+    0%   {background-color: rgb(252, 4, 16); filter: drop-shadow(1px 2px 12px red) brightness(1);}
+    25%  {background-color: red; filter: drop-shadow(1px 2px 12px red);}
+    50%  {background-color: red; filter: drop-shadow(1px 2px 12px red);}
+    100% {background-color: rgb(138, 3, 3); filter: drop-shadow(1px 2px 12px red) brightness(1);}
+}
+
+@keyframes winner{
+    0% { filter: brightness(2) drop-shadow(1px 2px 15px black) saturate(1); }
+    25% { filter: brightness(1.5) drop-shadow(1px 2px 15px black) saturate(1);}
+    50% { filter: brightness(1) drop-shadow(1px 2px 15px black); } 
+    75% { filter: drop-shadow(1px 2px 15px black)}
+    100% { filter: brightness(0.5) saturate(1) drop-shadow(1px 2px 15px black) ;}
+}
+
+.winnerBlue{
+    animation: winnerBlue .50s linear infinite;
+}
+.winnerRed{
+    animation: winnerRed .50s linear infinite;
+}
+.hidden{
+    display: none;
+}

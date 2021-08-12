@@ -290,4 +290,39 @@ const startGame = () => {
     movePills();
 }
 
+const playerName = document.querySelector('.victorySection>h2')
+const gifWin = document.querySelector('.victorySection div')
+const victorySection = document.querySelector('.victorySection')
+const playAgain = document.querySelector('#btnPlayAgain')
+const btnMenu = document.querySelector('#btnMenu')
+
+function winRed(){
+playerName.innerText += " Vermelho Venceu"
+playerName.style.color = 'red'
+// gifWin.style.backgroundImage = "url('../gif/redWin.gif')"
+gifWin.style.width = 300 +'px'
+gifWin.style.height = 167 +'px'
+}
+function winBlue(){
+    playerName.innerText += " Azul Venceu"
+    playerName.style.color = 'rgb(68, 0, 255)'
+    // gifWin.style.backgroundImage = "url('../gif/blueWin.gif')"
+    gifWin.style.width = 203 +'px'
+    gifWin.style.height = 222 +'px'
+}
+
+function menu(){
+    victorySection.classList.add('hidden')
+    victorySection.classList.remove('victorySection')
+}
+
+btnMenu.addEventListener('click', (e)=>{
+    menu()
+})
+
+playAgain.addEventListener('click', (e) =>{
+    
+})
+
+winRed()
 startGame();
