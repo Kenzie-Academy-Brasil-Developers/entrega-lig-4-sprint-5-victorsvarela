@@ -299,7 +299,7 @@ main section.victorySection{
 main section.victorySection div{
     display: flex;
     justify-content: center;
-    background-image: url('../gif/redWin.gif');
+    background-image: url('../gif/empate.gif');
     height: 222px;
     width: 203px;
 }

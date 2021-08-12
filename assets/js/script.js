@@ -88,7 +88,15 @@ function winBlue(){
     gifWin.style.width = 203 +'px'
     gifWin.style.height = 222 +'px'
 }
-
+function empate(){
+    victorySection.classList.add('victorySection')
+    victorySection.classList.remove('hidden')
+    playerName.innerText = "Empatou"
+    playerName.style.color = 'green'
+    // gifWin.style.backgroundImage = "url('../gif/empate.gif')"
+    gifWin.style.width = 203 +'px'
+    gifWin.style.height = 222 +'px'
+}
 function menu(){
     victorySection.classList.add('hidden')
     victorySection.classList.remove('victorySection')
