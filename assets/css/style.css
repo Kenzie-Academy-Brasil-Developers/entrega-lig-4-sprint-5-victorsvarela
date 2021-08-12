@@ -301,13 +301,47 @@ main section.victorySection div{
     justify-content: center;
     background-image: url('../gif/empate.gif');
     height: 222px;
+    width: 95vw;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+main section.victorySection div.victoryBlue{
+    display: flex;
+    justify-content: center;
+    background-image: url('../gif/blueWin.gif');
+    height: 222px;
     width: 203px;
+    color: blue;
+}
+main section.victorySection div.victoryRed{
+    display: flex;
+    justify-content: center;
+    background-image: url('../gif/redWin.gif');
+    height: 167px;
+    width: 300px;
+    color: red;
+}
+main section.victorySection div.empate{
+    display: flex;
+    justify-content: center;
+    background-image: url('../gif/empate.gif');
+    height: 222px;
+    width: 300px;
+    color: var(--color-green-background);
 }
 
-main section.victorySection  > h2{
+
+
+main section.victorySection  > h2.txtBlue{
     margin: 0;
     padding: 0;
-    color: var(--color-white);
+    color: blue;
+    font-family: Matrix;
+}
+main section.victorySection  > h2.txtRed{
+    margin: 0;
+    padding: 0;
+    color: red;
     font-family: Matrix;
 }
 .victoryScreen{

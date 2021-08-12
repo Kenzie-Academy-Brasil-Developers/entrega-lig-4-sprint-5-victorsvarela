@@ -22,22 +22,22 @@ const hideNameSection = (event) => {
 }
 
 const showLoadingScreen = (event) => {
-    
+
     player1 = document.getElementById('inputPlayer1').value;
     player2 = document.getElementById('inputPlayer2').value;
 
-    if (player1 !== '' && player2 !== ''){
+    if (player1 !== '' && player2 !== '') {
         loadingScreen.classList.remove('hidden');
         selectNameScreen.classList.add('hidden');
         initialScreen.classList.toggle('hidden');
-        setTimeout( () => {
+        setTimeout(() => {
             loadingScreen.classList.add('hidden');
             gameScreen.classList.toggle('hidden');
-            console.log('hi')
+            startGame();
         }, 2000);
-        
-    }else{
-        
+
+    } else {
+
     }
 
 }
@@ -69,60 +69,65 @@ const gifWin = document.querySelector('#victoryScreen div')
 const victorySection = document.querySelector('#victoryScreen')
 const playAgain = document.querySelector('#btnPlayAgain')
 const btnMenu = document.querySelector('#btnMenu')
+const winPlayer = document.getElementById('winPlayer')
 
-function winRed(){
+function winRed() {
     victorySection.classList.add('victorySection')
     victorySection.classList.remove('hidden')
+    gifWin.classList.add('victoryRed')
+    gifWin.classList.remove('victoryBlue')
+    winPlayer.classList.add('txtRed')
+    winPlayer.classList.remove('txtBlue')
     playerName.innerText = "Jogador Vermelho Venceu"
-    playerName.style.color = 'red'
-    // gifWin.style.backgroundImage = "url('../gif/redWin.gif')"
-    gifWin.style.width = 300 +'px'
-    gifWin.style.height = 167 +'px'
+   
 }
-function winBlue(){
+function winBlue() {
     victorySection.classList.add('victorySection')
     victorySection.classList.remove('hidden')
+    gifWin.classList.add('victoryBlue')
+    gifWin.classList.remove('victoryRed')
+    winPlayer.classList.add('txtBlue')
+    winPlayer.classList.remove('txtRed')
     playerName.innerText = "Jogador Azul Venceu"
-    playerName.style.color = 'rgb(68, 0, 255)'
-    // gifWin.style.backgroundImage = "url('../gif/blueWin.gif')"
-    gifWin.style.width = 203 +'px'
-    gifWin.style.height = 222 +'px'
+  
 }
-function empate(){
+function drawGame(){
     victorySection.classList.add('victorySection')
     victorySection.classList.remove('hidden')
+    gifWin.classList.remove('victoryRed')
+    gifWin.classList.remove('victoryBlue')
+    victorySection.classList.add('empate')
     playerName.innerText = "Empatou"
     playerName.style.color = 'green'
-    // gifWin.style.backgroundImage = "url('../gif/empate.gif')"
-    gifWin.style.width = 203 +'px'
-    gifWin.style.height = 222 +'px'
+  
 }
 function menu(){
     victorySection.classList.add('hidden')
     victorySection.classList.remove('victorySection')
+    // resetArray();
+    // selectNameScreen.classList.add("hidden");
+    // initialScreen.classList.remove("hidden");
 }
 
-btnMenu.addEventListener('click', (e)=>{
-    menu()
-    showSelectNamePlayers()
+btnMenu.addEventListener('click', (e) => {
+    // menu()
+    window.location.reload()
+
 })
 
-playAgain.addEventListener('click', (e) =>{
+playAgain.addEventListener('click', (e) => {
     const containeer = document.querySelector(".gameSection")
-    const child = containeer.childNodes
-    containeer.remove(child)
-    // renderGame();
-    console.log(containeer, containeer.childNodes, containeer.children)
+    let child = containeer.childNodes
+
+    //  Inserido um for para remover todos os elementos filhos de sectionGame
+    for (let i = 0; i < 7; i++) {
+        containeer.removeChild(child[0])
+    }
+    resetArray()
+    startGame();
+    menu();
+
 })
-
-
-
-
-
-
-
-
-
 
 // Array inicial da partida;
 
@@ -144,8 +149,21 @@ let game = [
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0]
 ];
-console.log(gameStructure);
+// console.log(gameStructure);
 // Criar função de renderizar;
+
+// Função para resetar a partida;
+const resetArray = () => {
+    game = [
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0]
+    ];
+    verifiqueEmpate = 0
+}
 
 const renderGame = () => {
     const container = document.getElementById("gameScreen");
@@ -170,7 +188,7 @@ let rowPlayer = undefined;
 
 const updateArray = (a, b) => {
     let n = 0;
-    if(currentPlayer === 'player1') {
+    if (currentPlayer === 'player1') {
         n = 1;
     } else {
         n = 2;
@@ -178,16 +196,25 @@ const updateArray = (a, b) => {
 
     a = Number(a);
     b = Number(b);
-    
-    for(let i = 0; i < game.length; i++) {
-        for(let j = 0; j < game[i].length; j++) {
-            if(i === b && j === a) {
+
+    for (let i = 0; i < game.length; i++) {
+        for (let j = 0; j < game[i].length; j++) {
+            if (i === b && j === a) {
                 game[i].splice(j, 1, n);
             }
         }
     }
 }
 
+const winner = (cell) => {
+    if (cell === 1) {
+        winRed()
+    }
+    if (cell === 2) {
+        winBlue()
+    }
+}
+let verifiqueEmpate = 0
 // Função de vitoria vertical
 const victoryVertical = () => {
     // Se procurar além do length da array dá erro
@@ -196,20 +223,23 @@ const victoryVertical = () => {
 
     // Vertical
     // itera sobre cada coluna
-    for(let y = 0; y < game.length; y++){
+    for (let y = 0; y < game.length; y++) {
 
         // itera sobre cada div da coluna
-        for(let x = 0; x < edgeX; x++) {
+        for (let x = 0; x < edgeX; x++) {
             let cell = game[y][x];
-            
+
             // Checa se a célula esta vazia (se o jogador não fez nenhuma jogada nessa celula)
-            if(cell !== 0) {
-                
+            if (cell !== 0) {
+
                 // Checa se o numero da celula atual e igual os proximos 3 numeros
-                if(cell === game[y][x+1] && cell === game[y][x+2] && cell === game[y][x+3]) {
-                    console.log("4 in a row vertical found at " + (x+1) + ":" + (y+1));
-                    winRed()
+                if (cell === game[y][x + 1] && cell === game[y][x + 2] && cell === game[y][x + 3]) {
+                    console.log("4 in a row vertical found at " + (x + 1) + ":" + (y + 1));
+                    winner(cell)  
+                    
+                                  
                 }
+                
             }
         }
     }
@@ -220,19 +250,20 @@ const victoryHorizontal = () => {
     const edgeY = game.length - 3;
     // Horizontal
     // itera sobre cada coluna  
-    for(let y = 0; y < edgeY; y++){
+    for (let y = 0; y < edgeY; y++) {
 
         // itera sobre cada div da coluna
-        for(let x = 0; x < game[0].length; x++) {
+        for (let x = 0; x < game[0].length; x++) {
             cell = game[y][x];
-            
+
             // Checa se a célula esta vazia (se o jogador não fez nenhuma jogada nessa celula)
-            if(cell !== 0) {
-                
+            if (cell !== 0) {
+
                 // Checa se o numero da celula atual e igual os proximos 3 numeros
-                if(cell === game[y+1][x] && cell === game[y+2][x] && cell === game[y+3][x] ) {
-                    console.log("4 in a row horizontal found at " + (x+1) + ":" + (y+1));
-                    winRed()
+                if (cell === game[y + 1][x] && cell === game[y + 2][x] && cell === game[y + 3][x]) {
+                    console.log("4 in a row horizontal found at " + (x + 1) + ":" + (y + 1));
+                    winner(cell)  
+                        
                 }
             }
         }
@@ -244,20 +275,21 @@ const victoryDiagonalRight = () => {
     const edgeY = game.length - 3;
     // DIAGONAL (direita pra baixo)
     // itera sobre cada coluna  
-    for(let y = 0; y < edgeY; y++){
+    for (let y = 0; y < edgeY; y++) {
 
         // itera sobre cada div da coluna
-        for(let x = 0; x < edgeX; x++) {
+        for (let x = 0; x < edgeX; x++) {
             cell = game[y][x];
-            
+
             // Checa se a célula esta vazia (se o jogador não fez nenhuma jogada nessa celula)
-            if(cell !== 0) {
-                
+            if (cell !== 0) {
+
                 // Checa se o numero da celula atual e igual os proximos 3 numeros
-                if(cell === game[y+1][x+1] && cell === game[y+2][x+2] && cell === game[y+3][x+3]) {
-                    console.log("4 in a row down-right found at " + (x+1) + ":" + (y+1));
-                    winRed()
+                if (cell === game[y + 1][x + 1] && cell === game[y + 2][x + 2] && cell === game[y + 3][x + 3]) {
+                    console.log("4 in a row down-right found at " + (x + 1) + ":" + (y + 1));
+                    winner(cell)  
                 }
+                
             }
         }
     }
@@ -271,19 +303,21 @@ const victoryDiagonalLeft = () => {
     // console.log(edgeY);
     // DIAGONAL (esquerda pra baixo)
     // itera sobre cada coluna  
-    for(let coluna = 2; coluna < game.length; coluna++){
+    for (let coluna = 2; coluna < game.length; coluna++) {
         // console.log(game.length);
         // itera sobre cada div da coluna
-        for(let linha = 0; linha < edgeX; linha++) {
+        for (let linha = 0; linha < edgeX; linha++) {
             cell = game[coluna][linha];
-            
+
             // Checa se a célula esta vazia (se o jogador não fez nenhuma jogada nessa celula)
-            if(cell !== 0) {
-            
+            if (cell !== 0) {
+
                 // Checa se o numero da celula atual e igual os proximos 3 numeros
                 // console.log(game[coluna-3][linha+3]);
-                if(cell === game[coluna-1][linha+1] && cell === game[coluna-2][linha+2] && cell === game[coluna-3][linha+3]) {
-                    console.log("4 in a row down-left found at " + (linha+1) + ":" + (coluna+1));
+                if (cell === game[coluna - 1][linha + 1] && cell === game[coluna - 2][linha + 2] && cell === game[coluna - 3][linha + 3]) {
+                    console.log("4 in a row down-left found at " + (linha + 1) + ":" + (coluna + 1));
+                    winner(cell)  
+                       
                 }
             }
         }
@@ -295,7 +329,7 @@ const addClass = (par) => {
 
     // Pegando todos os filhos da coluna selecionada;
     let child = par.childNodes;
-    
+
     // unindo em forma de array com spreed
     // child = [...child];
 
@@ -307,9 +341,18 @@ const addClass = (par) => {
             child[i].classList.remove("vazio");
             child[i].classList.add(currentPlayer);
 
+            if(child[i].className !== 'linha vazio'){
+                verifiqueEmpate += 1
+                console.log(verifiqueEmpate)
+                if(verifiqueEmpate === 42){
+                    drawGame()
+                }
+            }
+
             columnPlayer = child[i].id[1];
             rowPlayer = child[i].id[3];
             // console.log(columnPlayer);
+
             updateArray(columnPlayer, rowPlayer);
             victoryVertical();
             victoryHorizontal();
@@ -328,29 +371,32 @@ const addClass = (par) => {
 }
 
 
-
 // Função movePills
 const movePills = () => {
     // Capturando os elementos do tipo coluna que contém os elementos filhos que serão as linhas
     let listColumns = document.getElementsByClassName("coluna");
-    
+
     /*  listColumns = [...listColumns]; (remover essa parte - não tá servindo)
     let currentColumn = ""; (remover essa parte - não ta servindo)*/
 
     // Iterar sobre cada coluna para identificar o click e chamar a função add.Class
-    for (let i = 0; i <= 6; i++){
+    for (let i = 0; i <= 6; i++) {
         listColumns[i].addEventListener("click", (evt) => {
             let currentColumn = evt.currentTarget;
             addClass(currentColumn)
+            
+
         })
     }
 }
 
 // Criar função start game
 const startGame = () => {
+    resetArray();
     renderGame();
     movePills();
+    
 }
 
 
-startGame();
+// startGame();
