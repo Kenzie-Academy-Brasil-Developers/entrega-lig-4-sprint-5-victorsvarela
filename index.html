@@ -29,20 +29,27 @@
                 <button class="btnRules" id="btnRules">Regras</button>
             </div>
         </section>
+
         <section class="selectNameSection hidden" id="selectNameScreen">
             <div>
                 <div class="inputsDiv">
-                    <input placeholder="Jogador 1" type="text" class="inputPlayer" id="inputPlayer1">
-                    <input placeholder="Jogador 2" type="text" class="inputPlayer" id="inputPlayer2">
+                    <form action="">
+                        <input placeholder="Jogador 1" type="text" class="inputPlayer" id="inputPlayer1" autocomplete="off" required>
+                        <input placeholder="Jogador 2" type="text" class="inputPlayer" id="inputPlayer2" autocomplete="off" required>
+                    </form>
                 </div>
                 <div class="btnStartDiv">
-                    <button class="btnStartGame btnPadrao" id="btnStartGame">Iniciar</button>
+                    <button type="submit" class="btnStartGame btnPadrao" id="btnStartGame">Iniciar</button>
                     <button class="btnInitialScreen btnPadrao" id="btnInitialScreen">Tela Inicial</button>
                 </div>
             </div>
         </section>
-        
-        
+
+        <section class="loadingSection hidden" id="loadingScreen">
+            <div>
+                <h2>Loading...</h2>
+            </div>
+        </section>
         
         <section class="rulesSection hidden" id="rulesScreen">
             
@@ -73,7 +80,7 @@
             <button class="btnPadrao" id="backRules">Voltar</button>
         </section>
 
-        <section class="gameSection" id="gameScreen"></section>
+        <section class="gameSection hidden" id="gameScreen"></section>
 
     </main>
 
