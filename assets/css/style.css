@@ -1,4 +1,4 @@
-:root{
+:root {
     --color-white: #fff;
     --color-black: #000;
     --color-green-background: #22B455;
@@ -6,36 +6,30 @@
     --color-red: #ff0000;
     --color-blue: #0000ff;
     --dropshadow-button: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
-
 }
-
-
-
 
 @font-face {
     font-family: Matrix;
     src: url(../fonts/Antimatrix-BWBVw.ttf);
- }
+}
 
-html, body, div, section, img, ul, li{
+html, body, div, section, img, ul, li {
     padding: 0;
     margin: 0;
-    list-style-type:none;
+    list-style-type: none;
     box-sizing: border-box;
 }
 
-
 /* MAIN */
 
-main{
+main {
     width: 100%;
     height: 100vh;
 }
 
 /* INITIAL SECTION */
 
-
-main section.initialSection{
+main section.initialSection {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,16 +41,14 @@ main section.initialSection{
     background-position: right 125%, left 100%;
 }
 
-
-main section.initialSection div.secLogo{
+main section.initialSection div.secLogo {
     display: flex;
     justify-content: baseline;
     align-items: center;
     height: 300px;
 }
 
-
-main section.initialSection div.secLogo h2.logo{
+main section.initialSection div.secLogo h2.logo {
     font-family: Matrix;
     font-size: 78px;
 }
@@ -66,7 +58,7 @@ main section.initialSection div.secButtons {
     flex-direction: column;
 }
 
-main section.initialSection div.secButtons button.btnPlay, main section.initialSection div.secButtons button.btnRules, .btnPadrao, #btnPlayAgain, #btnMenu{
+main section.initialSection div.secButtons button.btnPlay, main section.initialSection div.secButtons button.btnRules, .btnPadrao, #btnPlayAgain, #btnMenu {
     background-color: var(--color-green-button);
     border: none;
     border-radius: 10px;
@@ -81,9 +73,10 @@ main section.initialSection div.secButtons button.btnPlay, main section.initialS
 }
 
 /* INITIAL SECTION */
+
 /* SELECT NAME SECTION */
 
-main section.selectNameSection{
+main section.selectNameSection {
     position: absolute;
     z-index: 3;
     top: 0;
@@ -99,21 +92,21 @@ main section.selectNameSection{
     background-position: 50%;
 }
 
-main section.hidden{
+main section.hidden {
     display: none;
 }
 
-main section.selectNameSection div{
+main section.selectNameSection div {
     margin-bottom: 30px;
 }
 
-main section.selectNameSection div div.inputsDiv{
+main section.selectNameSection div div.inputsDiv {
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
 
-main section.selectNameSection div div.inputsDiv input{
+main section.selectNameSection div div.inputsDiv input {
     border-radius: 10px;
     height: 24px;
     margin: 20px 10px;
@@ -123,30 +116,32 @@ main section.selectNameSection div div.inputsDiv input{
     border: none;
 }
 
-main section.selectNameSection div div.inputsDiv input::placeholder{
+main section.selectNameSection div div.inputsDiv input::placeholder {
     font-family: 'Courier New', Courier, monospace;
     /* font-family: Matrix; */
     text-align: center;
     color: var(--color-white);
 }
 
-main section.selectNameSection div div.btnStartDiv{
+main section.selectNameSection div div.btnStartDiv {
     align-items: center;
     display: flex;
     flex-direction: column;
 }
 
-main section.selectNameSection div div.btnStartDiv button.btnStartGame{
+main section.selectNameSection div div.btnStartDiv button.btnStartGame {
     width: 60vw;
 }
-main section.selectNameSection div div.btnStartDiv button.btnInitialScreen{
+
+main section.selectNameSection div div.btnStartDiv button.btnInitialScreen {
     width: 60vw;
 }
 
 /* SELECT NAME SECTION */
+
 /* LOADING SECTION */
 
-main section.loadingSection{
+main section.loadingSection {
     background-image: url('../gif/loading.gif');
     height: 100vh;
     display: flex;
@@ -159,16 +154,16 @@ main section.loadingSection{
     width: 100%;
 }
 
-main section.hidden{
+main section.hidden {
     display: none;
 }
 
-main section.loadingSection div{
+main section.loadingSection div {
     display: flex;
     justify-content: center;
 }
 
-main section.loadingSection div > h2{
+main section.loadingSection div>h2 {
     margin: 0;
     padding: 0;
     color: var(--color-white);
@@ -176,8 +171,10 @@ main section.loadingSection div > h2{
 }
 
 /* LOADING SECTION */
+
 /* RULES SECTION */
-.rulesSection{
+
+.rulesSection {
     position: absolute;
     z-index: 2;
     display: flex;
@@ -203,63 +200,68 @@ main section.loadingSection div > h2{
     filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
     
 } */
-.rulesSection ul li > p{
+
+.rulesSection ul li>p {
     margin: 12px 0px;
 }
-#backRules:hover{
+
+#backRules:hover {
     border: 2px solid #CCC;
     border-radius: 10px;
-    
     cursor: pointer
-    
 }
+
 ul li h3 {
     text-align: center;
     margin: 0px;
 }
-#finishGame{
+
+#finishGame {
     list-style-type: disc;
 }
 
-li#finishGame ul > li{
+li#finishGame ul>li {
     list-style-type: disc;
     list-style: inside;
-    
 }
 
-
 /* RULES SECTION */
+
 /* GAME SECTION */
 
-main section.gameSection{
+main section.gameSection {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('../gif/ag-smith.gif');
+    background-position: 38%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
-main section.hidden{
+main section.hidden {
     display: none;
 }
- 
- .coluna {
-     background-color: rgb(212, 209, 209);
-     margin: 5px 5px;
-     display: flex;
-     flex-direction: column;
-     
- }
- 
- .linha {
+
+.coluna {
+    background-color: rgb(212 209 209 / 31%);
+    margin: 5px 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.linha {
     width: 28px;
     height: 28px;
-     background-color: rgb(255, 255, 255);
-     margin: 5px 5px;
-     border-radius: 50px;
- }
+    background-color: rgb(255, 255, 255);
+    margin: 5px 5px;
+    border-radius: 50px;
+}
 
- .player1 {
+.player1 {
     width: 28px;
     height: 28px;
     background-color: rgb(224, 10, 10);
@@ -277,13 +279,11 @@ main section.hidden{
 
 /* GAME SECTION */
 
-
-
-
 /* MAIN */
 
 /* victoryScreen */
-main section.victorySection{
+
+main section.victorySection {
     background-color: transparent;
     height: 100vh;
     display: flex;
@@ -297,7 +297,8 @@ main section.victorySection{
     flex-direction: column;
     align-content: center;
 }
-main section.victorySection div{
+
+main section.victorySection div {
     display: flex;
     justify-content: center;
     background-image: url('../gif/empate.gif');
@@ -306,7 +307,8 @@ main section.victorySection div{
     background-position: center;
     background-repeat: no-repeat;
 }
-main section.victorySection div.victoryBlue{
+
+main section.victorySection div.victoryBlue {
     display: flex;
     justify-content: center;
     background-image: url('../gif/blueWin.gif');
@@ -314,7 +316,8 @@ main section.victorySection div.victoryBlue{
     width: 203px;
     color: var(--color-blue);
 }
-main section.victorySection div.victoryRed{
+
+main section.victorySection div.victoryRed {
     display: flex;
     justify-content: center;
     background-image: url('../gif/redWin.gif');
@@ -322,7 +325,8 @@ main section.victorySection div.victoryRed{
     width: 300px;
     color: var(--color-red);
 }
-main section.victorySection div.empate{
+
+main section.victorySection div.empate {
     display: flex;
     justify-content: center;
     background-image: url('../gif/empate.gif');
@@ -331,23 +335,22 @@ main section.victorySection div.empate{
     color: var(--color-green-background);
 }
 
-
-
-main section.victorySection  > h2.txtBlue{
+main section.victorySection>h2.txtBlue {
     margin: 0;
     padding: 0;
     color: var(--color-blue);
     font-family: Matrix;
 }
-main section.victorySection  > h2.txtRed{
+
+main section.victorySection>h2.txtRed {
     margin: 0;
     padding: 0;
     color: var(--color-red);
     font-family: Matrix;
 }
-.victoryScreen{
+
+.victoryScreen {
     background-color: var(--color-green-background);
- 
     position: absolute;
     z-index: 7;
     height: 100vh;
@@ -355,33 +358,69 @@ main section.victorySection  > h2.txtRed{
 }
 
 @keyframes winnerBlue {
-    0%   {background-color: rgb(68, 0, 255); filter: drop-shadow(1px 2px 12px var(--color-blue));}
-    25%  {background-color: rgb(55, 0, 255); filter: drop-shadow(1px 2px 12px var(--color-blue));}
-    50%  {background-color: var(--color-blue); filter: drop-shadow(1px 2px 12px var(--color-blue));}
-    100% {background-color: rgb(0, 9, 128); filter: drop-shadow(1px 2px 12px var(--color-blue));}
-  }
+    0% {
+        background-color: rgb(68, 0, 255);
+        filter: drop-shadow(1px 2px 12px var(--color-blue));
+    }
+    25% {
+        background-color: rgb(55, 0, 255);
+        filter: drop-shadow(1px 2px 12px var(--color-blue));
+    }
+    50% {
+        background-color: var(--color-blue);
+        filter: drop-shadow(1px 2px 12px var(--color-blue));
+    }
+    100% {
+        background-color: rgb(0, 9, 128);
+        filter: drop-shadow(1px 2px 12px var(--color-blue));
+    }
+}
 
 @keyframes winnerRed {
-    0%   {background-color: rgb(252, 4, 16); filter: drop-shadow(1px 2px 12px var(--color-red)) brightness(1);}
-    25%  {background-color: var(--color-red); filter: drop-shadow(1px 2px 12px var(--color-red));}
-    50%  {background-color: var(--color-red); filter: drop-shadow(1px 2px 12px var(--color-red));}
-    100% {background-color: rgb(138, 3, 3); filter: drop-shadow(1px 2px 12px var(--color-red)) brightness(1);}
+    0% {
+        background-color: rgb(252, 4, 16);
+        filter: drop-shadow(1px 2px 12px var(--color-red)) brightness(1);
+    }
+    25% {
+        background-color: var(--color-red);
+        filter: drop-shadow(1px 2px 12px var(--color-red));
+    }
+    50% {
+        background-color: var(--color-red);
+        filter: drop-shadow(1px 2px 12px var(--color-red));
+    }
+    100% {
+        background-color: rgb(138, 3, 3);
+        filter: drop-shadow(1px 2px 12px var(--color-red)) brightness(1);
+    }
 }
 
-@keyframes winner{
-    0% { filter: brightness(2) drop-shadow(1px 2px 15px black) saturate(1); }
-    25% { filter: brightness(1.5) drop-shadow(1px 2px 15px black) saturate(1);}
-    50% { filter: brightness(1) drop-shadow(1px 2px 15px black); } 
-    75% { filter: drop-shadow(1px 2px 15px black)}
-    100% { filter: brightness(0.5) saturate(1) drop-shadow(1px 2px 15px black) ;}
+@keyframes winner {
+    0% {
+        filter: brightness(2) drop-shadow(1px 2px 15px black) saturate(1);
+    }
+    25% {
+        filter: brightness(1.5) drop-shadow(1px 2px 15px black) saturate(1);
+    }
+    50% {
+        filter: brightness(1) drop-shadow(1px 2px 15px black);
+    }
+    75% {
+        filter: drop-shadow(1px 2px 15px black)
+    }
+    100% {
+        filter: brightness(0.5) saturate(1) drop-shadow(1px 2px 15px black);
+    }
 }
 
-.winnerBlue{
+.winnerBlue {
     animation: winnerBlue .50s linear infinite;
 }
-.winnerRed{
+
+.winnerRed {
     animation: winnerRed .50s linear infinite;
 }
-.hidden{
+
+.hidden {
     display: none;
 }
