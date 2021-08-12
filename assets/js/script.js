@@ -77,6 +77,15 @@ let gameStructure = [
     [0, 0, 0, 0, 0, 0]
 ];
 
+let game = [
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0]
+];
+console.log(gameStructure);
 // Criar função de renderizar;
 
 const renderGame = () => {
@@ -111,36 +120,34 @@ const updateArray = (a, b) => {
     a = Number(a);
     b = Number(b);
     
-    for(let i = 0; i < gameStructure.length; i++) {
-        for(let j = 0; j < gameStructure[i].length; j++) {
-            if(i === a && j === b) {
-                gameStructure[i].splice(j, 1, n);
+    for(let i = 0; i < game.length; i++) {
+        for(let j = 0; j < game[i].length; j++) {
+            if(i === b && j === a) {
+                game[i].splice(j, 1, n);
             }
         }
     }
-    
-    console.log(gameStructure);
 }
 
 // Função de vitoria vertical
 const victoryVertical = () => {
     // Se procurar além do length da array dá erro
-    const edgeX = gameStructure[0].length - 3;
-    const edgeY = gameStructure.length - 3;
+    const edgeX = game[0].length - 3;
+    const edgeY = game.length - 3;
 
     // Vertical
     // itera sobre cada coluna
-    for(let y = 0; y < gameStructure.length; y++){
+    for(let y = 0; y < game.length; y++){
 
         // itera sobre cada div da coluna
         for(let x = 0; x < edgeX; x++) {
-            let cell = gameStructure[y][x];
+            let cell = game[y][x];
             
             // Checa se a célula esta vazia (se o jogador não fez nenhuma jogada nessa celula)
             if(cell !== 0) {
                 
                 // Checa se o numero da celula atual e igual os proximos 3 numeros
-                if(cell === gameStructure[y][x+1] && cell === gameStructure[y][x+2] && cell === gameStructure[y][x+3]) {
+                if(cell === game[y][x+1] && cell === game[y][x+2] && cell === game[y][x+3]) {
                     console.log("4 in a row vertical found at " + (x+1) + ":" + (y+1));
                 }
             }
@@ -149,21 +156,21 @@ const victoryVertical = () => {
 }
 // Função de vitoria horizontal
 const victoryHorizontal = () => {
-    const edgeX = gameStructure[0].length - 3;
-    const edgeY = gameStructure.length - 3;
+    const edgeX = game[0].length - 3;
+    const edgeY = game.length - 3;
     // Horizontal
     // itera sobre cada coluna  
     for(let y = 0; y < edgeY; y++){
 
         // itera sobre cada div da coluna
-        for(let x = 0; x < gameStructure[0].length; x++) {
-            cell = gameStructure[y][x];
+        for(let x = 0; x < game[0].length; x++) {
+            cell = game[y][x];
             
             // Checa se a célula esta vazia (se o jogador não fez nenhuma jogada nessa celula)
             if(cell !== 0) {
                 
                 // Checa se o numero da celula atual e igual os proximos 3 numeros
-                if(cell === gameStructure[y+1][x] && cell === gameStructure[y+2][x] && cell === gameStructure[y+3][x] ) {
+                if(cell === game[y+1][x] && cell === game[y+2][x] && cell === game[y+3][x] ) {
                     console.log("4 in a row horizontal found at " + (x+1) + ":" + (y+1));
                 }
             }
@@ -172,45 +179,49 @@ const victoryHorizontal = () => {
 }
 // Função de vitoria diagonal direita
 const victoryDiagonalRight = () => {
-    const edgeX = gameStructure[0].length - 3;
-    const edgeY = gameStructure.length - 3;
+    const edgeX = game[0].length - 3;
+    const edgeY = game.length - 3;
     // DIAGONAL (direita pra baixo)
     // itera sobre cada coluna  
     for(let y = 0; y < edgeY; y++){
 
         // itera sobre cada div da coluna
         for(let x = 0; x < edgeX; x++) {
-            cell = gameStructure[y][x];
+            cell = game[y][x];
             
             // Checa se a célula esta vazia (se o jogador não fez nenhuma jogada nessa celula)
             if(cell !== 0) {
                 
                 // Checa se o numero da celula atual e igual os proximos 3 numeros
-                if(cell === gameStructure[y+1][x+1] && cell === gameStructure[y+2][x+2] && cell === gameStructure[y+3][x+3]) {
+                if(cell === game[y+1][x+1] && cell === game[y+2][x+2] && cell === game[y+3][x+3]) {
                     console.log("4 in a row down-right found at " + (x+1) + ":" + (y+1));
                 }
             }
         }
     }
 }
+
 // Função de vitoria diagonal esquerda
 const victoryDiagonalLeft = () => {
-    const edgeX = gameStructure[0].length - 3;
-    const edgeY = gameStructure.length - 3;
+    const edgeX = game[0].length - 3;
+    const edgeY = game.length - 3;
+    // console.log(edgeX);
+    // console.log(edgeY);
     // DIAGONAL (esquerda pra baixo)
     // itera sobre cada coluna  
-    for(let y = 2; y < gameStructure.length; y++){
-
+    for(let coluna = 2; coluna < game.length; coluna++){
+        // console.log(game.length);
         // itera sobre cada div da coluna
-        for(let x = 0; x < edgeX; x++) {
-            cell = gameStructure[y][x];
+        for(let linha = 0; linha < edgeX; linha++) {
+            cell = game[coluna][linha];
             
             // Checa se a célula esta vazia (se o jogador não fez nenhuma jogada nessa celula)
             if(cell !== 0) {
             
                 // Checa se o numero da celula atual e igual os proximos 3 numeros
-                if(cell === gameStructure[y-1][x+1] && cell === gameStructure[y-2][x+2] && cell === gameStructure[y-3][x+3]) {
-                    console.log("4 in a row down-left found at " + (x+1) + ":" + (y+1));
+                // console.log(game[coluna-3][linha+3]);
+                if(cell === game[coluna-1][linha+1] && cell === game[coluna-2][linha+2] && cell === game[coluna-3][linha+3]) {
+                    console.log("4 in a row down-left found at " + (linha+1) + ":" + (coluna+1));
                 }
             }
         }
@@ -236,6 +247,7 @@ const addClass = (par) => {
 
             columnPlayer = child[i].id[1];
             rowPlayer = child[i].id[3];
+            // console.log(columnPlayer);
             updateArray(columnPlayer, rowPlayer);
             victoryVertical();
             victoryHorizontal();
