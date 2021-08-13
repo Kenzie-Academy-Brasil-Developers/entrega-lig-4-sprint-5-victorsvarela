@@ -43,7 +43,18 @@ main section.initialSection{
     background-repeat: no-repeat;
     background-position: right 125%, left 100%;
 }
-
+/* main section.initialSection > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--color-green-background);
+    background-image: url(../img/neo-new.png), url(../img/morpheus.png);
+    background-size: 220px, 170px;
+    background-repeat: no-repeat;
+    background-position: right 125%, left 100%;
+    max-width: 500px;
+} */
 
 main section.initialSection div.secLogo{
     display: flex;
@@ -187,6 +198,14 @@ main section.loadingSection div > h2{
     font-family: 'Advent Pro', sans-serif;
     height: 100vh;
     top: 0;
+    width: 100vw;
+}
+main section.rulesSection > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    max-width: 379px;
 }
 
 /* #backRules{
@@ -215,7 +234,7 @@ ul li h3 {
     margin: 0px;
 }
 #finishGame{
-    list-style-type: disc;
+    /* list-style-type: disc; */
 }
 
 li#finishGame ul > li{
@@ -384,3 +403,4 @@ main section.victorySection  > h2.txtRed{
 .hidden{
     display: none;
 }
+
