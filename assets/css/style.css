@@ -192,6 +192,14 @@ main section.loadingSection div>h2 {
     font-family: 'Advent Pro', sans-serif;
     height: 100vh;
     top: 0;
+    width: 100vw;
+}
+main section.rulesSection > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    max-width: 379px;
 }
 
 /* #backRules{
@@ -301,15 +309,15 @@ main section.hidden {
 /* victoryScreen */
 
 main section.victorySection {
-    background-color: transparent;
+    background-color: rgb(0 0 0 / 50%);
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     padding-bottom: 20px;
     position: absolute;
     z-index: 4;
-    top: -4%;
+    bottom: 0;
     width: 100%;
     flex-direction: column;
     align-content: center;
@@ -357,13 +365,32 @@ main section.victorySection>h2.txtBlue {
     padding: 0;
     color: var(--color-blue);
     font-family: Matrix;
+    text-align: center;
 }
-
 main section.victorySection>h2.txtRed {
     margin: 0;
     padding: 0;
     color: var(--color-red);
     font-family: Matrix;
+    text-align: center;
+}
+main section.victorySection>h2.txtDraw {
+    margin: 0;
+    padding: 0;
+    color: var(--color-green-background);
+    font-family: Matrix;
+}
+.txtPlayerBlue{
+    color: var(--color-blue);
+    font-family: Matrix;
+}
+.txtPlayerRed{
+    color: var(--color-red);
+    font-family: Matrix; 
+}
+#dispPlayer{
+    font-size: 21px;
+    
 }
 
 .victoryScreen {

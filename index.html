@@ -57,46 +57,50 @@
         </section>
 
         <section class="rulesSection hidden" id="rulesScreen">
+            <div>
+                <h2>Regras Do Jogo</h2>
+                <ul>
+                    <li>
+                        <h3><strong>Posição inicial e objectivo do jogo</strong></h3>
+                        <p>O objectivo deste jogo é colocar quatro peças numa linha contínua vertical, horizontal ou
+                            diagonalmente. O jogo desenrola-se num tabuleiro quadrado de 6x7 e começa com o tabuleiro em
+                            branco.</p>
+                    </li>
 
-            <h2>Regras Do Jogo</h2>
-            <ul>
-                <li>
-                    <h3><strong>Posição inicial e objectivo do jogo</strong></h3>
-                    <p>O objectivo deste jogo é colocar quatro peças numa linha contínua vertical, horizontal ou
-                        diagonalmente. O jogo desenrola-se num tabuleiro quadrado de 6x7 e começa com o tabuleiro em
-                        branco.</p>
-                </li>
+                    <li>
+                        <h3><strong>Como jogar as peças</strong></h3>
+                        <p>Ambos os jogadores jogam as suas peças no tabuleiro, uma peça por jogada. A regra é que a
+                            peça
+                            "caia" sempre. Quer dizer que a peça deve sempre ser jogada ou na linha do fundo ou sobre
+                            uma
+                            peça já colocada. A figura seguinte mostra uma posição de jogo e as cruzes verdes indicam os
+                            locais onde o jogador pode jogar uma nova peça.</p>
+                    </li>
 
-                <li>
-                    <h3><strong>Como jogar as peças</strong></h3>
-                    <p>Ambos os jogadores jogam as suas peças no tabuleiro, uma peça por jogada. A regra é que a peça
-                        "caia" sempre. Quer dizer que a peça deve sempre ser jogada ou na linha do fundo ou sobre uma
-                        peça já colocada. A figura seguinte mostra uma posição de jogo e as cruzes verdes indicam os
-                        locais onde o jogador pode jogar uma nova peça.</p>
-                </li>
-
-                <li id="finishGame">
-                    <h3><strong>Como terminar o jogo</strong></h3>
-                    <p>O jogo termina quando uma das condições seguintes se verificar:</p>
-                    <ul>
-                        <li>
-                            Um dos jogadores coloca quatro ou mais peças numa linha contínua vertical, horizontal ou
-                            diagonalmente. Este jogador vence o jogo.
-                        </li>
-                        <li>
-                            Todas as casas do tabuleiro estão ocupadas e nenhum jogador satisfaz a condição anterior de
-                            vitória. Neste caso o jogo termina em empate.
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <button class="btnPadrao" id="backRules">Voltar</button>
+                    <li id="finishGame">
+                        <h3><strong>Como terminar o jogo</strong></h3>
+                        <p>O jogo termina quando uma das condições seguintes se verificar:</p>
+                        <ul>
+                            <li>
+                                Um dos jogadores coloca quatro ou mais peças numa linha contínua vertical, horizontal ou
+                                diagonalmente. Este jogador vence o jogo.
+                            </li>
+                            <li>
+                                Todas as casas do tabuleiro estão ocupadas e nenhum jogador satisfaz a condição anterior
+                                de
+                                vitória. Neste caso o jogo termina em empate.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <button class="btnPadrao" id="backRules">Voltar</button>
+            </div>
         </section>
 
         <section class="sectionFGameSection hidden" id="sectionFGameScreen">
             <div class="divCurrentPlayer">
                 <span id="dispPlayer">
-                    Atual Player:
+                    Jogador Atual Vermelho
                 </span>
             </div>
             <section class="gameSection" id="gameScreen"></section>
@@ -109,7 +113,7 @@
             <div>
 
             </div>
-            <button id="btnPlayAgain">Play Again</button>
+            <button id="btnPlayAgain">Revanche</button>
             <button id="btnMenu">Menu</button>
         </section>
 

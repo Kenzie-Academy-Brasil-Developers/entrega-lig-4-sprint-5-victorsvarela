@@ -81,7 +81,8 @@ function winRed() {
     gifWin.classList.remove('victoryBlue')
     winPlayer.classList.add('txtRed')
     winPlayer.classList.remove('txtBlue')
-    playerName.innerText = "Jogador Vermelho Venceu"
+    winPlayer.classList.remove('txtDraw')
+    playerName.innerHTML = `${player1} Abraçou a Verdade Dolorosa`;
    
 }
 function winBlue() {
@@ -91,7 +92,8 @@ function winBlue() {
     gifWin.classList.remove('victoryRed')
     winPlayer.classList.add('txtBlue')
     winPlayer.classList.remove('txtRed')
-    playerName.innerText = "Jogador Azul Venceu"
+    winPlayer.classList.remove('txtDraw')
+    playerName.innerHTML = `${player2} Continuou Cego na Matrix`;
   
 }
 function drawGame(){
@@ -99,10 +101,12 @@ function drawGame(){
     victorySection.classList.remove('hidden')
     gifWin.classList.remove('victoryRed')
     gifWin.classList.remove('victoryBlue')
-    victorySection.classList.add('empate')
+    winPlayer.classList.remove('txtBlue')
+    winPlayer.classList.remove('txtRed')
+    winPlayer.classList.add('txtDraw')
+    playerName.classList.add('empate')
     playerName.innerText = "Empatou"
-    playerName.style.color = 'green'
-  
+      
 }
 function menu(){
     victorySection.classList.add('hidden')
@@ -319,9 +323,11 @@ const victoryDiagonalLeft = () => {
 
 const displayJogador = (jogador) => {
     if(jogador === "player1") {
-        dispPlayer.innerHTML = 'Jogador Atual Vermelho'
+        dispPlayer.innerHTML = `Jogador Atual ${player1}`
+        dispPlayer.className ='txtPlayerRed'
     } else {
-        dispPlayer.innerHTML = 'Jogador Atual Azul'
+        dispPlayer.innerHTML = `Jogador Atual ${player2}`
+        dispPlayer.className ='txtPlayerBlue'
     }
 }
 
@@ -345,7 +351,7 @@ const addClass = (par) => {
             if(child[i].className !== 'linha vazio'){
                 verifiqueEmpate += 1
                 if(verifiqueEmpate === 42){
-                    drawGame()
+                    drawGame();
                 }
             }
 
@@ -393,6 +399,10 @@ const movePills = () => {
 
 // Criar função start game
 const startGame = () => {
+    if(dispPlayer.className === ''){
+        dispPlayer.className ='txtPlayerRed';
+        dispPlayer.innerHTML = `Jogador Atual ${player1}`;
+    }
     resetArray();
     renderGame();
     movePills();
