@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lig-4</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@200;300;400;500;600&display=swap"
+        rel="stylesheet">
     <!-- Google Fonts -->
-    
+
 
 </head>
+
 <body>
-    
+
 
     <main>
 
@@ -34,8 +37,10 @@
             <div>
                 <div class="inputsDiv">
                     <form action="">
-                        <input placeholder="Jogador 1" type="text" class="inputPlayer" id="inputPlayer1" autocomplete="off" required>
-                        <input placeholder="Jogador 2" type="text" class="inputPlayer" id="inputPlayer2" autocomplete="off" required>
+                        <input placeholder="Jogador 1" type="text" class="inputPlayer" id="inputPlayer1"
+                            autocomplete="off" required>
+                        <input placeholder="Jogador 2" type="text" class="inputPlayer" id="inputPlayer2"
+                            autocomplete="off" required>
                     </form>
                 </div>
                 <div class="btnStartDiv">
@@ -50,40 +55,48 @@
                 <h2>Loading...</h2>
             </div>
         </section>
-        
+
         <section class="rulesSection hidden" id="rulesScreen">
-            
-                <h2>Regras Do Jogo</h2>
+
+            <h2>Regras Do Jogo</h2>
             <ul>
-            <li> <h3><strong>Posição inicial e objectivo do jogo</strong></h3>
-                <p>O objectivo deste jogo é colocar quatro peças numa linha contínua vertical, horizontal ou diagonalmente. O jogo desenrola-se num tabuleiro quadrado de 6x7 e começa com o tabuleiro em branco.</p>
-            </li> 
+                <li>
+                    <h3><strong>Posição inicial e objectivo do jogo</strong></h3>
+                    <p>O objectivo deste jogo é colocar quatro peças numa linha contínua vertical, horizontal ou
+                        diagonalmente. O jogo desenrola-se num tabuleiro quadrado de 6x7 e começa com o tabuleiro em
+                        branco.</p>
+                </li>
 
-            <li>
-                <h3><strong>Como jogar as peças</strong></h3>
-                <p>Ambos os jogadores jogam as suas peças no tabuleiro, uma peça por jogada. A regra é que a peça "caia" sempre. Quer dizer que a peça deve sempre ser jogada ou na linha do fundo ou sobre uma peça já colocada. A figura seguinte mostra uma posição de jogo e as cruzes verdes indicam os locais onde o jogador pode jogar uma nova peça.</p>
-            </li>
+                <li>
+                    <h3><strong>Como jogar as peças</strong></h3>
+                    <p>Ambos os jogadores jogam as suas peças no tabuleiro, uma peça por jogada. A regra é que a peça
+                        "caia" sempre. Quer dizer que a peça deve sempre ser jogada ou na linha do fundo ou sobre uma
+                        peça já colocada. A figura seguinte mostra uma posição de jogo e as cruzes verdes indicam os
+                        locais onde o jogador pode jogar uma nova peça.</p>
+                </li>
 
-            <li id="finishGame">
-                <h3><strong>Como terminar o jogo</strong></h3>
-                <p>O jogo termina quando uma das condições seguintes se verificar:</p>
-                <ul>
-                    <li>
-                        Um dos jogadores coloca quatro ou mais peças numa linha contínua vertical, horizontal ou diagonalmente. Este jogador vence o jogo.
-                    </li>
-                    <li>
-                        Todas as casas do tabuleiro estão ocupadas e nenhum jogador satisfaz a condição anterior de vitória. Neste caso o jogo termina em empate.
-                    </li>
-                </ul>
-            </li>
+                <li id="finishGame">
+                    <h3><strong>Como terminar o jogo</strong></h3>
+                    <p>O jogo termina quando uma das condições seguintes se verificar:</p>
+                    <ul>
+                        <li>
+                            Um dos jogadores coloca quatro ou mais peças numa linha contínua vertical, horizontal ou
+                            diagonalmente. Este jogador vence o jogo.
+                        </li>
+                        <li>
+                            Todas as casas do tabuleiro estão ocupadas e nenhum jogador satisfaz a condição anterior de
+                            vitória. Neste caso o jogo termina em empate.
+                        </li>
+                    </ul>
+                </li>
             </ul>
             <button class="btnPadrao" id="backRules">Voltar</button>
         </section>
 
         <section class="sectionFGameSection hidden" id="sectionFGameScreen">
             <div class="divCurrentPlayer">
-                <span>
-                    Atual Player: 
+                <span id="dispPlayer">
+                    Atual Player:
                 </span>
             </div>
             <section class="gameSection" id="gameScreen"></section>
@@ -94,7 +107,7 @@
         <section class="hidden" id="victoryScreen">
             <h2 id="winPlayer">Jogador </h2>
             <div>
-                
+
             </div>
             <button id="btnPlayAgain">Play Again</button>
             <button id="btnMenu">Menu</button>
@@ -105,4 +118,5 @@
 
     <script src="./assets/js/script.js"></script>
 </body>
+
 </html>

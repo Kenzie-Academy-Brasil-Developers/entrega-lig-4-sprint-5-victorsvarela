@@ -6,6 +6,7 @@ const btnStartGame = document.getElementById('btnStartGame');
 const loadingScreen = document.getElementById('loadingScreen');
 const gameScreen = document.getElementById('gameScreen')
 const sectionFGameScreen = document.getElementById('sectionFGameScreen')
+const dispPlayer = document.getElementById("dispPlayer");
 
 let btnBackRules = document.getElementById("backRules");
 let rulesSection = document.getElementById("rulesScreen");
@@ -314,6 +315,16 @@ const victoryDiagonalLeft = () => {
     }
 }
 
+// função display jogador atual
+
+const displayJogador = (jogador) => {
+    if(jogador === "player1") {
+        dispPlayer.innerHTML = 'Jogador Atual Vermelho'
+    } else {
+        dispPlayer.innerHTML = 'Jogador Atual Azul'
+    }
+}
+
 // função addClass verifica jogador e adiciona Classe
 const addClass = (par) => {
 
@@ -356,6 +367,8 @@ const addClass = (par) => {
     } else {
         currentPlayer = "player1";
     }
+
+    displayJogador(currentPlayer);
 }
 
 
