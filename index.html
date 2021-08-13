@@ -56,7 +56,7 @@
                 <h2>Regras Do Jogo</h2>
             <ul>
             <li> <h3><strong>Posição inicial e objectivo do jogo</strong></h3>
-                <p>O objectivo deste jogo é colocar quatro peças numa linha contínua vertical, horizontal ou diagonalmente. O jogo desenrola-se num tabuleiro quadrado de 8x8 e começa com o tabuleiro em branco.</p>
+                <p>O objectivo deste jogo é colocar quatro peças numa linha contínua vertical, horizontal ou diagonalmente. O jogo desenrola-se num tabuleiro quadrado de 6x7 e começa com o tabuleiro em branco.</p>
             </li> 
 
             <li>
@@ -80,7 +80,16 @@
             <button class="btnPadrao" id="backRules">Voltar</button>
         </section>
 
-        <section class="gameSection hidden" id="gameScreen"></section>
+        <section class="sectionFGameSection hidden" id="sectionFGameScreen">
+            <div class="divCurrentPlayer">
+                <span>
+                    Atual Player: 
+                </span>
+            </div>
+            <section class="gameSection" id="gameScreen"></section>
+
+        </section>
+
 
         <section class="hidden" id="victoryScreen">
             <h2 id="winPlayer">Jogador </h2>

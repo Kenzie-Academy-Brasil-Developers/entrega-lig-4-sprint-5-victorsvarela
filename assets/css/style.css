@@ -141,8 +141,13 @@ main section.selectNameSection div div.btnStartDiv button.btnInitialScreen {
 
 /* LOADING SECTION */
 
+
+
 main section.loadingSection {
     background-image: url('../gif/loading.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     height: 100vh;
     display: flex;
     align-items: flex-end;
@@ -216,10 +221,6 @@ ul li h3 {
     margin: 0px;
 }
 
-#finishGame {
-    list-style-type: disc;
-}
-
 li#finishGame ul>li {
     list-style-type: disc;
     list-style: inside;
@@ -229,16 +230,32 @@ li#finishGame ul>li {
 
 /* GAME SECTION */
 
-main section.gameSection {
-    width: 100%;
-    height: 100vh;
+main section.sectionFGameSection div.divCurrentPlayer{
+    font-family: Matrix;
+    color: var(--color-white);
+
+}
+
+main section.sectionFGameSection{
+    
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
     background-image: url('../gif/ag-smith.gif');
     background-position: 38%;
     background-repeat: no-repeat;
     background-size: cover;
+
+}
+
+main section.gameSection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 
 }
 
@@ -423,4 +440,13 @@ main section.victorySection>h2.txtRed {
 
 .hidden {
     display: none;
+}
+
+
+
+
+@media (min-width: 1023px){
+    main section.loadingSection {
+        background-image: url('../gif/neo-stop-guns.gif');
+    }
 }

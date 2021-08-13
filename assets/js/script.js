@@ -5,6 +5,7 @@ const btnInitialScreen = document.getElementById('btnInitialScreen');
 const btnStartGame = document.getElementById('btnStartGame');
 const loadingScreen = document.getElementById('loadingScreen');
 const gameScreen = document.getElementById('gameScreen')
+const sectionFGameScreen = document.getElementById('sectionFGameScreen')
 
 let btnBackRules = document.getElementById("backRules");
 let rulesSection = document.getElementById("rulesScreen");
@@ -32,7 +33,8 @@ const showLoadingScreen = (event) => {
         initialScreen.classList.toggle('hidden');
         setTimeout(() => {
             loadingScreen.classList.add('hidden');
-            gameScreen.classList.toggle('hidden');
+            //gameScreen.classList.remove('hidden');
+            sectionFGameScreen.classList.remove('hidden')
             startGame();
         }, 2000);
 
@@ -149,7 +151,7 @@ let game = [
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0]
 ];
-// console.log(gameStructure);
+
 // Criar função de renderizar;
 
 // Função para resetar a partida;
@@ -234,10 +236,7 @@ const victoryVertical = () => {
 
                 // Checa se o numero da celula atual e igual os proximos 3 numeros
                 if (cell === game[y][x + 1] && cell === game[y][x + 2] && cell === game[y][x + 3]) {
-                    console.log("4 in a row vertical found at " + (x + 1) + ":" + (y + 1));
-                    winner(cell)  
-                    
-                                  
+                    winner(cell)              
                 }
                 
             }
@@ -261,9 +260,7 @@ const victoryHorizontal = () => {
 
                 // Checa se o numero da celula atual e igual os proximos 3 numeros
                 if (cell === game[y + 1][x] && cell === game[y + 2][x] && cell === game[y + 3][x]) {
-                    console.log("4 in a row horizontal found at " + (x + 1) + ":" + (y + 1));
-                    winner(cell)  
-                        
+                    winner(cell)
                 }
             }
         }
@@ -286,7 +283,6 @@ const victoryDiagonalRight = () => {
 
                 // Checa se o numero da celula atual e igual os proximos 3 numeros
                 if (cell === game[y + 1][x + 1] && cell === game[y + 2][x + 2] && cell === game[y + 3][x + 3]) {
-                    console.log("4 in a row down-right found at " + (x + 1) + ":" + (y + 1));
                     winner(cell)  
                 }
                 
@@ -299,12 +295,9 @@ const victoryDiagonalRight = () => {
 const victoryDiagonalLeft = () => {
     const edgeX = game[0].length - 3;
     const edgeY = game.length - 3;
-    // console.log(edgeX);
-    // console.log(edgeY);
     // DIAGONAL (esquerda pra baixo)
     // itera sobre cada coluna  
     for (let coluna = 2; coluna < game.length; coluna++) {
-        // console.log(game.length);
         // itera sobre cada div da coluna
         for (let linha = 0; linha < edgeX; linha++) {
             cell = game[coluna][linha];
@@ -313,11 +306,8 @@ const victoryDiagonalLeft = () => {
             if (cell !== 0) {
 
                 // Checa se o numero da celula atual e igual os proximos 3 numeros
-                // console.log(game[coluna-3][linha+3]);
                 if (cell === game[coluna - 1][linha + 1] && cell === game[coluna - 2][linha + 2] && cell === game[coluna - 3][linha + 3]) {
-                    console.log("4 in a row down-left found at " + (linha + 1) + ":" + (coluna + 1));
-                    winner(cell)  
-                       
+                    winner(cell)
                 }
             }
         }
@@ -343,7 +333,6 @@ const addClass = (par) => {
 
             if(child[i].className !== 'linha vazio'){
                 verifiqueEmpate += 1
-                console.log(verifiqueEmpate)
                 if(verifiqueEmpate === 42){
                     drawGame()
                 }
@@ -351,7 +340,6 @@ const addClass = (par) => {
 
             columnPlayer = child[i].id[1];
             rowPlayer = child[i].id[3];
-            // console.log(columnPlayer);
 
             updateArray(columnPlayer, rowPlayer);
             victoryVertical();
